@@ -1,37 +1,28 @@
+import { motion } from "framer-motion";
+
+const projects = [
+  { title: "Banking Dashboard", desc: "Transaction monitoring system" },
+  { title: "Portfolio Website", desc: "Personal developer portfolio" },
+  { title: "Payment API", desc: "Telebirr & MPESA integration" },
+];
+
 export default function Projects() {
-    return (
-      <section id="projects" className="bg-light p-5">
-        <div className="container">
-          <h2>Projects</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5>Project One</h5>
-                  <p>React + Node App</p>
-                </div>
-              </div>
+  return (
+    <section id="projects" className="bg-dark text-white py-5">
+      <div className="container">
+        <h2 className="fw-bold text-center mb-4">Projects</h2>
+
+        <div className="row">
+          {projects.map((p, i) => (
+            <div key={i} className="col-md-4 mb-3">
+              <motion.div whileHover={{ scale: 1.05 }} className="card bg-secondary text-white p-3">
+                <h5>{p.title}</h5>
+                <p className="text-light">{p.desc}</p>
+              </motion.div>
             </div>
-  
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5>Project Two</h5>
-                  <p>Banking System</p>
-                </div>
-              </div>
-            </div>
-  
-            <div className="col-md-4">
-              <div className="card">
-                <div className="card-body">
-                  <h5>Project Three</h5>
-                  <p>Portfolio Website</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
-      </section>
-    );
-  }
+      </div>
+    </section>
+  );
+}
